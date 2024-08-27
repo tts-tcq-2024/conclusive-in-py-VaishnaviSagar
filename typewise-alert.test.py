@@ -27,16 +27,16 @@ class TypewiseTest(unittest.TestCase):
       expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
       self.assertEqual(mock_stdout.getvalue(),expected_output)
 
-  def test_check_and_alert(self):battery_charge = {'coolingType':'PASSIVE_COOLING'}
+  def test_check_and_alert(self):
   with patch('__main__.send_to_controller') as mock_send_to_controller:
-    typewise_alert.check_and_alert('TO_CONTROLLER', battery_charge, 25)
+    typewise_alert.check_and_alert('TO_CONTROLLER', {'coolingType':'PASSIVE_COOLING'}, 25)
     mock_send_to_controller.assert_called_with('NORMAL')
 
   with patch('__main__.send_to_email') as mock_send_to_email:
-    typewise_alert.check_and_alert('TO_EMAIL', battery_charge, -5)
+    typewise_alert.check_and_alert('TO_EMAIL', {'coolingType':'PASSIVE_COOLING'}, -5)
     mock_send_to_controller.assert_called_with('TOO_LOW')
 
-typewise_alert.check_and_alert('INVALID_TARGET', battery_charge, 50)
+typewise_alert.check_and_alert('INVALID_TARGET', {'coolingType':'PASSIVE_COOLING'}, 50)
 
 
 
