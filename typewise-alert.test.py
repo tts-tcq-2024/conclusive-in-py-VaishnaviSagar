@@ -16,14 +16,14 @@ class TypewiseTest(unittest.TestCase):
     
 @patch('sys.stdout', new_callable=StringIO)
   def test_send_to_controller(self, mock_stdout):
-        send_to_controller('TOO_LOW')
-        self.assertEqual(mock_stdout.getvalue(),'65534, TOO_LOW\n')
+      send_to_controller('TOO_LOW')
+      self.assertEqual(mock_stdout.getvalue(),'65534, TOO_LOW\n')
 
 @patch('sys.stdout', new_callable=StringIO)
   def test_send_to_email(self, mock_stdout):
-        send_to_email('TOO_HIGH')
-        expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
-        self.assertEqual(mock_stdout.getvalue(),expected_output)
+      send_to_email('TOO_HIGH')
+      expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
+      self.assertEqual(mock_stdout.getvalue(),expected_output)
 
   def test_check_and_alert(self):
   battery_charge = {'coolingType':'PASSIVE_COOLING'}
