@@ -1,7 +1,7 @@
-	import unittest
-	from unittest.mock import patch
-	from io import StringIO
-	import typewise_alert
+import unittest
+from unittest.mock import patch
+from io import StringIO
+import typewise_alert
 
 
 	class TypewiseTest(unittest.TestCase):
