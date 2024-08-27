@@ -26,7 +26,7 @@ class TypewiseTest(unittest.TestCase):
 	@patch('sys.stdout', new_callable=StringIO)
 	def test_send_to_controller(self, mock_stdout):
 	  typewise_alert.send_to_controller('TOO_LOW')
-	  self.assertEqual(mock_stdout.getvalue(),'65534, TOO_LOW\n')
+	  self.assertEqual(mock_stdout.getvalue(),'65261, TOO_LOW\n')
 
 	@patch('sys.stdout', new_callable=StringIO)
 	def test_send_to_email(self, mock_stdout):
