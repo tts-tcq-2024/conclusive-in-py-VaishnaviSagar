@@ -12,15 +12,15 @@ class TypewiseTest(unittest.TestCase):
 		self.assertEqual(typewise_alert.infers_breach(20,50,60), 'TOO_HIGH')
 
 	def test_classify_temperature_breach(self):
-		self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING',25),'NORMAL')
-		self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING', 36), 'TOO_HIGH')
-        	self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING', -1), 'TOO_LOW')
-		self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING',-5),'TOO_LOW')
-		self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING', 25), 'NORMAL')
-        	self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING', 46), 'TOO_HIGH')
-	        self.assertEqual(typewise_alert.classify_temperature_breach('MED_ACTIVE_COOLING', 25), 'NORMAL')
-		self.assertEqual(typewise_alert.classify_temperature_breach('MID_ACTIVE_COOLING',50),'TOO_HIGH')
-		self.assertEqual(typewise_alert.classify_temperature_breach('MED_ACTIVE_COOLING', -1), 'TOO_LOW')
+                self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING',25),'NORMAL')
+                self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING', 36), 'TOO_HIGH')
+                self.assertEqual(typewise_alert.classify_temperature_breach('PASSIVE_COOLING', -1), 'TOO_LOW')
+                self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING',-5),'TOO_LOW')
+                self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING', 25), 'NORMAL')
+                self.assertEqual(typewise_alert.classify_temperature_breach('HI_ACTIVE_COOLING', 46), 'TOO_HIGH')
+                self.assertEqual(typewise_alert.classify_temperature_breach('MED_ACTIVE_COOLING', 25), 'NORMAL')
+                self.assertEqual(typewise_alert.classify_temperature_breach('MID_ACTIVE_COOLING',50),'TOO_HIGH')
+                self.assertEqual(typewise_alert.classify_temperature_breach('MED_ACTIVE_COOLING', -1), 'TOO_LOW')
 
 
 	@patch('sys.stdout', new_callable=StringIO)
