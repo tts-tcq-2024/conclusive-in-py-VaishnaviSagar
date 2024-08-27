@@ -13,6 +13,7 @@ class TypewiseTest(unittest.TestCase):
     self.assertEqual(classify_temperature_breach('PASSIVE_COOLING',25),'NORMAL')
     self.assertEqual(classify_temperature_breach('HI_ACTIVE_COOLING',-5),'TOO_LOW')
     self.assertEqual(classify_temperature_breach('MID_ACTIVE_COOLING',50),'TOO_HIGH')
+    
 @patch('sys.stdout', new_callable=StringIO)
   def test_send_to_controller(self, mock_stdout):
         send_to_controller('TOO_LOW')
