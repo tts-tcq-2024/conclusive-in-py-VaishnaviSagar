@@ -1,4 +1,6 @@
 import unittest
+from unittest.mock import patch
+from io import StringIO
 import typewise_alert
 
 
@@ -14,12 +16,12 @@ class TypewiseTest(unittest.TestCase):
     self.assertEqual(classify_temperature_breach('HI_ACTIVE_COOLING',-5),'TOO_LOW')
     self.assertEqual(classify_temperature_breach('MID_ACTIVE_COOLING',50),'TOO_HIGH')
     
-@patch('sys.stdout', new_callable=StringIO)
+  @patch('sys.stdout', new_callable=StringIO)
   def test_send_to_controller(self, mock_stdout):
       send_to_controller('TOO_LOW')
       self.assertEqual(mock_stdout.getvalue(),'65534, TOO_LOW\n')
 
-@patch('sys.stdout', new_callable=StringIO)
+  @patch('sys.stdout', new_callable=StringIO)
   def test_send_to_email(self, mock_stdout):
       send_to_email('TOO_HIGH')
       expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
