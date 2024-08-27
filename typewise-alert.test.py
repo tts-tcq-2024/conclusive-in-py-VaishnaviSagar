@@ -14,17 +14,17 @@ class TypewiseTest(unittest.TestCase):
     self.assertEqual(classify_temperature_breach('HI_ACTIVE_COOLING',-5),'TOO_LOW')
     self.assertEqual(classify_temperature_breach('MID_ACTIVE_COOLING',50),'TOO_HIGH')
 @patch('sys.stdout', new_callable=StringIO)
-    def test_send_to_controller(self, mock_stdout):
+  def test_send_to_controller(self, mock_stdout):
         send_to_controller('TOO_LOW')
-        self.assertEqual(mock_stdout.getvalue(),expected_output)
+        self.assertEqual(mock_stdout.getvalue(),'65534, TOO_LOW\n')
 
 @patch('sys.stdout', new_callable=StringIO)
-    def test_send_to_email(self, mock_stdout):
+  def test_send_to_email(self, mock_stdout):
         send_to_email('TOO_HIGH')
-        expected_output = "To:a.b@cy.com\nHi, The temperature is too high"
+        expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
         self.assertEqual(mock_stdout.getvalue(),expected_output)
 
-def test_check_and_alert(self):
+  def test_check_and_alert(self):
   battery_charge = {'coolingType':'PASSIVE_COOLING'}
   with patch('__main__.send_to_controller') as mock_send_to_controller:
     check_and_alert('TO_CONTROLLER', battery_charge, 25)
