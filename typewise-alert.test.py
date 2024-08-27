@@ -28,12 +28,12 @@ class TypewiseTest(unittest.TestCase):
       self.assertEqual(mock_stdout.getvalue(),expected_output)
 
   def test_check_and_alert(self):
-  battery_charge = {'coolingType':'PASSIVE_COOLING'}
+      battery_charge = {'coolingType':'PASSIVE_COOLING'}
   with patch('__main__.send_to_controller') as mock_send_to_controller:
     check_and_alert('TO_CONTROLLER', battery_charge, 25)
     mock_send_to_controller.assert_called_with('NORMAL')
 
- with patch('__main__.send_to_email') as mock_send_to_email:
+  with patch('__main__.send_to_email') as mock_send_to_email:
     check_and_alert('TO_EMAIL', battery_charge, -5)
     mock_send_to_controller.assert_called_with('TOO_LOW')
 
