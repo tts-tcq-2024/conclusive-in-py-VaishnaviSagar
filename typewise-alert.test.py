@@ -40,7 +40,7 @@ class TypewiseTest(unittest.TestCase):
 			typewise_alert.check_and_alert('TO_CONTROLLER', {'coolingType':'PASSIVE_COOLING'}, 25)
 			mock_send_to_controller.assert_called_with('NORMAL')
 
-		with patch('__main__.send_to_email') as mock_send_to_email:
+		with patch('typewise_alert.send_to_email') as mock_send_to_email:
 			typewise_alert.check_and_alert('TO_EMAIL', {'coolingType':'PASSIVE_COOLING'}, -5)
 			mock_send_to_controller.assert_called_with('TOO_LOW')
 
