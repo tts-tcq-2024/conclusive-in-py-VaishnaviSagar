@@ -17,7 +17,7 @@ def classify_temperature_breach(cooling_type, temperature_in_c):
     lower_limit, upper_limit = limits.get(cooling_type, (None, None))
     if lower_limit is None or upper_limit is None:
         raise ValueError(f"Unknown cooling type: {cooling_type}")
-    return infers_breach(temperature_in_c, lower_limit, upper_limit)
+    return infers_breach(lower_limit, upper_limit, temperature_in_c)
 
 
 def check_and_alert(alert_target, battery_char, temperature_in_c):
