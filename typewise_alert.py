@@ -1,4 +1,4 @@
-def infers_breach(lower_limit, upper_limit, temperature):
+def infer_breach(lower_limit, upper_limit, temperature):
     if temperature < lower_limit:
         return 'TOO_LOW'
     elif temperature > upper_limit:
