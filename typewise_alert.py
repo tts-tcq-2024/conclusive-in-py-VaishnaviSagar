@@ -1,4 +1,4 @@
-def infer_breach(lower_limit, upper_limit, temperature):
+def infers_breach(lower_limit, upper_limit, temperature):
     if temperature < lower_limit:
         return 'TOO_LOW'
     elif temperature > upper_limit:
@@ -15,7 +15,7 @@ def classify_temperature_breach(cooling_type, temperature_in_c):
     }
     
     lower_limit, upper_limit = limits.get(cooling_type, (0, 0))
-    return infer_breach(temperature_in_c, lower_limit, upper_limit)
+    return infers_breach(temperature_in_c, lower_limit, upper_limit)
 
 
 def check_and_alert(alert_target, battery_char, temperature_in_c):
