@@ -2,7 +2,7 @@
 
 def infer_breach(value, lowerLimit, upperLimit):
    return 'TOO_LOW'
-if value < lowerLimit
+if value < lowerLimit:
    else 'TOO_HIGH'
 if value > upperLimit:
    else 'NORMAL'
