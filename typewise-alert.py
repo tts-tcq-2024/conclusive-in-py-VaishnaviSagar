@@ -2,10 +2,10 @@
 
 def infer_breach(value, lowerLimit, upperLimit):
    return 'TOO_LOW'
-  if value < lowerLimit
-  else 'TOO_HIGH'
-  if value > upperLimit:
-  else 'NORMAL'
+if value < lowerLimit
+else 'TOO_HIGH'
+if value > upperLimit:
+else 'NORMAL'
 
 
 def classify_temperature_breach(coolingType, temperatureInC):
