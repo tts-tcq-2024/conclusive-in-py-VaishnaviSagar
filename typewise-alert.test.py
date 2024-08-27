@@ -31,7 +31,7 @@ class TypewiseTest(unittest.TestCase):
 	@patch('sys.stdout', new_callable=StringIO)
 	def test_send_to_email(self, mock_stdout):
 	  typewise_alert.send_to_email('TOO_HIGH')
-	  expected_output = "To:a.b@cy.com\nHi, The temperature is too high\n"
+	  expected_output = "To:a.b@c.com\nHi, the temperature is too high\n"
 	  self.assertEqual(mock_stdout.getvalue(),expected_output)
 
 	def test_check_and_alert(self):
